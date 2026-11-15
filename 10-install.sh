@@ -22,7 +22,7 @@ VALIDATE(){
 CHECKING(){
     if [ $2 -ne 0 ]; then
         echo "$1 is not installed"
-        exit 1
+    
     else 
         echo "$! is already installed... skipping"
         exit 1
