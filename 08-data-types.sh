@@ -11,3 +11,4 @@ echo "the sum of num1 and num2 is : $SUM"
 
 MOVIES=("rrr","pspk","pushpa") #index always starts with 0
 echo "movies are :${MOVIES[0]}"
+echo "first movie is :{MOVIES[0]}"
