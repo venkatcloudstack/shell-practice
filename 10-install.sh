@@ -41,5 +41,6 @@ if [ $? -eq o ]; then
     echo "nginx is already installed... SKIPPING"
 else
     echo "installing nginx"
+    dnf install nginx -y
     VALIDATE nginx $?
 fi
