@@ -23,8 +23,8 @@ dnf list installed mysql  &>> $LOGS_FILE
 if [ $? -eq 0 ]; then
     echo "mysql is already installed...  skipping"
 else
-    echo "installing mysql" &>> $LOGS_FILE
-    dnf install mysql -y
+    echo "installing mysql" 
+    dnf install mysql -y &>> $LOGS_FILE
     VALIDATE mysql $?
 fi
 
