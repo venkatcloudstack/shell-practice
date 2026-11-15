@@ -7,20 +7,31 @@ if [ $USERID -ne 0 ]; then
     exit 1
 fi
 
+#$1=what are you trying to install
+#$2=exit code
+VALIDATE(){
+    if [ $2 -ne 0 ]; then
+        echo "installing $1... FAILED"
+        exit 1
+    else
+        echo "installing $1...SUCCESS"
+    fi
+}
+#$1=what are you checking 
+#$2=exit code
+CHECKING(){
+    if [ $2 -ne 0 ]; then
+        echo "$1 is not installed"
+    else 
+        echo "$! is already installed... skipping"
+        exit 1
+    fi
+
+}
 #echo "iam continuing...."
 dnf list installed mysql 
-if [ $? -ne 0 ]; then
-    echo "mysql is not installed"
-else 
-    echo "mysql is already installed... skipping"
-    exit 1
-fi
+CHECKING mysql $?
 echo "installing mysql"
 dnf install mysql -y
+VALIDATE mysql $?
 
-if [ $? -ne 0 ]; then
-    echo "installing mysql... FAILED"
-    exit 1
-else
-    echo "installing mysql...SUCCESS"
-fi
