@@ -42,3 +42,4 @@ if [ $? -eq o ]; then
 else
     echo "installing nginx"
     VALIDATE nginx $?
+fi
