@@ -12,9 +12,9 @@ fi
 #$2= exit code
 VALIDATE (){
     if [ $2 -ne 0 ]; then
-        echo " installing $1 is.... failed"
+        echo " installing $1 is.... failed" | tee -a $LOGS_FILE
     else
-        echo " installing $1 is.... success"
+        echo " installing $1 is.... success" | tee -a $LOGS_FILE
     fi
 }
 
