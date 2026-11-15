@@ -13,7 +13,7 @@ if [ $? -ne 0 ]; then
     echo "mysql is not installed"
 else 
     echo "mysql is already installed... skipping"
-
+fi
 echo "installing mysql"
 dnf install mysql -y
 
