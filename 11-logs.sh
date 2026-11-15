@@ -1,6 +1,6 @@
 USERID=$(id -u)
 LOGS_DIR=/home/ec2-user/shell-logs
-LOGS_FILE=$(LOGS_DIR/$0.log)
+LOGS_FILE="$LOGS_DIR/$0.log"
 
 #check root acces or not 
 if [ $USERID -ne 0 ]; then
