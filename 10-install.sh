@@ -36,3 +36,9 @@ echo "installing mysql"
 dnf install mysql -y
 VALIDATE mysql $?
 
+dnf list installed nginx
+if [ $? -eq o ]; then
+    echo "nginx is already installed... SKIPPING"
+else
+    echo "installing nginx"
+    VALIDATE nginx $?
