@@ -40,10 +40,6 @@ VALIDATE mysql $?
 
 dnf list installed nginx  &>> LOGS_FILE
 CHECKING nginx $?
-if [ $? -eq o ]; then
-    echo "nginx is already installed... SKIPPING"
-else
     echo "installing nginx"
     dnf install nginx -y  &>> LOGS_FILE
     VALIDATE nginx $?
-fi
