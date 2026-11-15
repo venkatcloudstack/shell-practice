@@ -26,7 +26,7 @@ CHECKING(){
         echo "$1 is not installed"
     
     else 
-        echo "$! is already installed... skipping"
+        echo "$1 is already installed... skipping"
         
     fi
 
