@@ -9,7 +9,7 @@ fi
 
 #echo "iam continuing...."
 echo "installing mysql"
-dnf install mysrthr -y
+dnf install mysql -y
 
 if [ $? -ne 0 ]; then
     echo "installing mysql... FAILED"
