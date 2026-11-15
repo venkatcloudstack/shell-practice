@@ -1,4 +1,4 @@
 #!/bin/bash
 TIMESTAMP=$(date)
 
-echo"time is :$TIMESTAMP"
+echo "time is : $TIMESTAMP"
