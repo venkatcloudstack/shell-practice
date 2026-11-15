@@ -25,7 +25,7 @@ CHECKING(){
     
     else 
         echo "$! is already installed... skipping"
-        exit 1
+        
     fi
 
 }
