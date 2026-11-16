@@ -2,6 +2,7 @@
 USERID=$(id -u)
 LOGS_DIR=/var/log/shell-script
 LOGS_FILE="$LOGS_DIR/$0.log"
+TIMESTAMP=$(date "+%Y-%m-%d %H-%M-%S")
 
 #check root acces or not 
 if [ $USERID -ne 0 ]; then
@@ -13,9 +14,9 @@ fi
 #$2= exit code
 VALIDATE (){
     if [ $2 -ne 0 ]; then
-        echo " installing $1 is.... failed"
+        echo "$TIMESTAMP [ERROR] installing $1 is.... failed" | tee -a LOGS_FILE
     else
-        echo " installing $1 is.... success"
+        echo "$TIMESTAMP [INFO] installing $1 is.... success" | tee -a LOGS_FILE
     fi
 }
 
@@ -23,28 +24,12 @@ for package in $@
 do
 
     echo "installing $package"
-    dnf install $package
-    VALIDATE $package $?
-
-
+    dnf list installed $package  &>> LOGS_FILE 
+    if [ $? -ne 0  ]; then
+        dnf install $package -y &>> LOGS_FILE
+        VALIDATE $package $?
+    else
+        echo "$package already installed ... SKIPPING"
+    
+    fi
 done
-
-dnf list installed mysql
-
-if [ $? -eq 0 ]; then
-    echo "mysql is already installed...  skipping"
-else
-    echo "installing mysql"
-    dnf install mysql -y
-    VALIDATE mysql $?
-fi
-
-dnf list installed nginx
-if [ $? -eq 0 ]; then
-    echo "nginx is already installed...  skipping"
-else
-    echo "installing nginx"
-    dnf install nginx -y
-    VALIDATE nginx $?
-fi
-
