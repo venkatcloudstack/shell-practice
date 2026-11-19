@@ -18,3 +18,11 @@ if [ ! -d "$DEST_DIR" ]; then
     echo " destination directory: $DEST_DIR does not exist"
     exit 1
 fi
+
+FILES=$(find . -type f -name "*.log" -mtime +14)
+
+if [ -z "$FILES" ]; then
+    echo " log files older than 14 days not found, nothing to do"
+    exit 0
+else
+
