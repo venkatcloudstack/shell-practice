@@ -1,7 +1,6 @@
 #!/bin/bash
-while IFS= read -r line
+
+while IFS= read -r line || [ -n "$line" ]
 do
-
-      echo "$line"
-
-done  < 01-hello-world.sh
+    echo "$line"
+done < 01-hello-world.sh
