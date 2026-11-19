@@ -11,10 +11,10 @@ if [ -z "$SOURCE_DIR" ] || [ -z "$DEST_DIR" ]; then
 fi
 
 if [ ! d "$SOURCE_DIR" ]; then
-    echo "source dirctory $SOURCE_DIR: does not exist"
+    echo "source dirctory $SOURCE_DIR does not exist"
     exit 1
 fi
 if [ ! d "$DEST_DIR" ]; then
-    echo " destination directory $DEST_DIR: does not exist"
+    echo " destination directory $DEST_DIR does not exist"
     exit 1
 fi
