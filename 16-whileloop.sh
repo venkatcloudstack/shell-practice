@@ -1,6 +1,5 @@
 while IFS= read -r line
 do
 
-     "$line"
-
+      "echo $line"
 done  < 01-hello-world.sh
